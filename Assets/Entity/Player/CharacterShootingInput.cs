@@ -18,7 +18,18 @@ public class CharacterShootingInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            shooting.Fire(Camera.main.transform.forward);
+            Vector3 shotOrigin = Camera.main.transform.position + Vector3.down * 2f;
+            Vector3 shotDirection = Camera.main.transform.forward;
+
+            // BLERGH
+            Ray r = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hit;
+            if (Physics.Raycast(r, out hit, 1000f))
+            {
+                shotDirection = (hit.point - shotOrigin).normalized;
+            }
+
+            shooting.Fire(shotOrigin, shotDirection);
         }
     }
 }

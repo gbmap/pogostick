@@ -50,6 +50,9 @@ MonoBehaviour:
   air_accelerate: 50
   max_velocity_air: 600
   friction: 10
+  groundCheckMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &2350168704246086804
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshCollider))]
+[RequireComponent(typeof(Path))]
 public class RampMeshGenerator : MonoBehaviour
 {
     Mesh mesh;
@@ -12,9 +14,6 @@ public class RampMeshGenerator : MonoBehaviour
 
     Vector3[] vertices;
     int[] triangles;
-
-    [Range(1, 16)]
-    public int RampSmoothSegments;
 
     // Start is called before the first frame update
     void Awake()
@@ -123,74 +122,4 @@ public class RampMeshGenerator : MonoBehaviour
         meshCollider.sharedMesh = mesh;
     }
 
-    public void SmoothRamp()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (i == transform.childCount - 1) break;
-
-            Transform a = transform.GetChild(i);
-            Transform b = transform.GetChild(i + 1);
-
-            for (int j = 1; j < RampSmoothSegments + 1; j++)
-            {
-                float t = ((float)j) / (RampSmoothSegments + 1);
-
-                /* Linear */
-                Vector3 p = Vector3.Lerp(a.localPosition, b.localPosition, t);
-                //p = LinearInterp(a.localPosition, b.localPosition, t);
-                p = QuadraticInterp(a.localPosition, a.localPosition + a.forward, b.localPosition, t);
-                Vector3 r = Quaternion.Lerp(a.localRotation, b.localRotation, t).eulerAngles;
-                Vector3 s = Vector3.Lerp(a.localScale, b.localScale, t);
-
-                GameObject go = new GameObject("Point" + (i + 1));
-                go.transform.parent = transform;
-                go.transform.SetSiblingIndex(i + 1);
-                go.transform.localPosition = p;
-                go.transform.localRotation = Quaternion.Euler(r);
-                go.transform.localScale = s;
-                i++;
-            }
-        }
-    }
-
-    private Vector3 LinearInterp(Vector3 a, Vector3 b, float t)
-    {
-        return a + t * (b - a);
-    }
-
-    private Vector3 QuadraticInterp(Vector3 a, Vector3 b, Vector3 c, float t)
-    {
-        float u = 1f - t;
-        float tt = t * t;
-        float uu = u * u;
-        Vector3 p = uu * a;
-        p += 2 * u * t * b;
-        p += tt * c;
-        return p;
-    }
-
-    private void OnDrawGizmos()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            Transform child = transform.GetChild(i);
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(child.position, 2f);
-            if (i < transform.childCount - 1)
-            {
-                Transform childB = transform.GetChild(i + 1);
-                Gizmos.color = Color.white;
-                Gizmos.DrawLine(child.position, childB.position);
-            }
-        }
-    }
-
-    public Vector3 WorldToGuiPoint(Vector3 position)
-    {
-        var guiPosition = Camera.main.WorldToScreenPoint(position);
-        guiPosition.y = Screen.height - guiPosition.y;
-
-        return guiPosition;
-    }
 }

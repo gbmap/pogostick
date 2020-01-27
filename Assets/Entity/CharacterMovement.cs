@@ -13,6 +13,8 @@ public class CharacterMovement : MonoBehaviour
     public float max_velocity_air = 300f;
     public float friction = 10f;
 
+    public LayerMask groundCheckMask;
+
     Rigidbody rbody;
     Collider collider;
 
@@ -28,7 +30,7 @@ public class CharacterMovement : MonoBehaviour
             r.direction = Vector3.down;
 
             RaycastHit hitInfo;
-            Physics.Raycast(r, out hitInfo, 0.2f);
+            Physics.Raycast(r, out hitInfo, 0.2f, groundCheckMask.value);
             return Vector3.Dot(Vector3.up, hitInfo.normal) > 0.75f;
         }
     }

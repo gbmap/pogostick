@@ -76,10 +76,15 @@ public class Billboard : MonoBehaviour
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
             Camera.main.transform.rotation * Vector3.up);
 
-        if (!Mathf.Approximately(HitFactor, 0f))
+        if (HitFactor > 0f)
         {
-            HitFactor -= Time.deltaTime * 3f;
+            HitFactor = HitFactor - Time.deltaTime * 3f;
         }
+        else if (HitFactor < 0f)
+        {
+            HitFactor = 0f;
+        }
+
     }
 
     private void OnDrawGizmos()

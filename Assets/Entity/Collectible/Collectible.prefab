@@ -19,6 +19,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4901776325733652926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682823982954350259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320bddf7c7a300d4fbab36c036b9ce1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6259615711022784817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +56,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Collectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627948368327316938, guid: a835fc8a37503e54c89f21fc04821e6e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1627948368327316943, guid: a835fc8a37503e54c89f21fc04821e6e,
         type: 3}
@@ -115,6 +132,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1627948368327316937, guid: a835fc8a37503e54c89f21fc04821e6e,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627948368327316937, guid: a835fc8a37503e54c89f21fc04821e6e,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1627948368327316936, guid: a835fc8a37503e54c89f21fc04821e6e,
         type: 3}
       propertyPath: m_Height
@@ -135,10 +162,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1627948368327316937, guid: a835fc8a37503e54c89f21fc04821e6e,
+    - target: {fileID: 1627948367783200168, guid: a835fc8a37503e54c89f21fc04821e6e,
         type: 3}
-      propertyPath: m_UseGravity
-      value: 0
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1627948367783200083, guid: a835fc8a37503e54c89f21fc04821e6e,
         type: 3}
