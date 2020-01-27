@@ -8,4 +8,6 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: AC_Donut
   m_Controller: {fileID: 9100000, guid: 8066ab054364199438d8fe4b8f37dae9, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 16e10d0ea32e0254ca627c1449de96f8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aaba01990c0a3694c9d54905e4844fdf, type: 2}

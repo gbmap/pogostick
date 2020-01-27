@@ -92,5 +92,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  resizeToTexture: 0
+  resizeToTexture: 1
   ScaleFactor: 1
+  scaleCollider: 1
