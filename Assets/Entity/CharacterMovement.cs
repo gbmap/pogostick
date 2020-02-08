@@ -36,11 +36,14 @@ public class CharacterMovement : MonoBehaviour
     }
     bool lastIsOnGround;
 
+    Vector3 lastGroundPos;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
         collider = GetComponentInChildren<Collider>();
+        lastGroundPos = transform.position;
     }
 
     // Update is called once per frame
@@ -49,17 +52,18 @@ public class CharacterMovement : MonoBehaviour
         if (!IsOnGround && lastIsOnGround)
         {
             biggestVel = Vector3.zero;
+            lastGroundPos = transform.position;
         }
 
         else if (!IsOnGround)
         {
-            if (biggestVel.magnitude < rbody.velocity.magnitude)
+            if (biggestVel.y > rbody.velocity.y)
             {
                 biggestVel = rbody.velocity;
             }
         }
 
-        velFactor = Mathf.Lerp(velFactor, IsCrouched ? 0.75f : 1f, Time.deltaTime * 0.5f);
+        velFactor = Mathf.Lerp(velFactor, IsCrouched ? 0.85f : 1f, Time.deltaTime);
 
         Vector3 dir = wishDir;
 
@@ -112,13 +116,19 @@ public class CharacterMovement : MonoBehaviour
         Vector3 vel2 = rbody.velocity;
 
         float velFactor = IsCrouched ? 0.5f : 0.75f;
-        float defaultVelFactor = IsCrouched ? 5f : 10f;
+        float defaultVelFactor = IsCrouched ? 5f : 15f;
 
         vel2.y = Mathf.Max(Mathf.Abs(biggestVel.y) * velFactor, defaultVelFactor);
 
         rbody.velocity = vel2;
     }
     
+    public void ReturnToLastGroundPosition()
+    {
+        transform.position = lastGroundPos + Vector3.up;
+        rbody.velocity = Vector3.zero;
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (!Application.isPlaying) return;

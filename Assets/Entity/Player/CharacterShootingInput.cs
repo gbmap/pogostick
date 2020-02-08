@@ -16,7 +16,13 @@ public class CharacterShootingInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (shooting.weapon == null)
+        {
+            return;
+        }
+
+        if ( (Input.GetMouseButtonDown(0) || (shooting.weapon.firingType == EWeaponFiringType.Automatic && Input.GetMouseButton(0)) ) &&
+            shooting.weapon.CanShoot)
         {
             Vector3 shotOrigin = Camera.main.transform.position + Vector3.down * 2f;
             Vector3 shotDirection = Camera.main.transform.forward;

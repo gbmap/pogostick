@@ -25,6 +25,7 @@ public class PlayerCamera : MonoBehaviour
     private void Awake()
     {
         shooting = GetComponentInParent<CharacterShooting>();
+        targetRotation = transform.forward;
     }
 
     void Start()
@@ -42,13 +43,13 @@ public class PlayerCamera : MonoBehaviour
                                     shakeMaxAngle * shake * ShakeNoise(0.5f),
                                     shakeMaxAngle * shake * ShakeNoise(0.75f));
 
-        recoilRotation = new Vector3(recoilMaxAngle * -shooting.trauma.Shake, 0f, 0f);
+        recoilRotation = new Vector3(recoilMaxAngle * -shooting.trauma.Shake, ShakeNoise() * .5f * recoilMaxAngle * -shooting.trauma.Shake, 0f);
 
         transform.localEulerAngles = targetRotation + shakeRotation + recoilRotation;
         trauma.Update();
     }
 
-    float ShakeNoise(float y)
+    float ShakeNoise(float y = 0f)
     {
         return (Mathf.PerlinNoise(Time.time * noiseTimeFactor, y) - 0.5f) * 2f;
     }

@@ -11,15 +11,20 @@ public class RampMeshGenerator : MonoBehaviour
     Mesh mesh;
     MeshFilter meshFilter;
     MeshCollider meshCollider;
+    MeshRenderer renderer;
 
     Vector3[] vertices;
     int[] triangles;
+
+    [Range(1f, 100f)]
+    public float scale = 1f;
 
     // Start is called before the first frame update
     void Awake()
     {
         meshFilter = GetComponent<MeshFilter>();
         meshCollider = GetComponent<MeshCollider>();
+        renderer = GetComponent<MeshRenderer>();
         CreateRamp();
     }
 
@@ -49,9 +54,9 @@ public class RampMeshGenerator : MonoBehaviour
                 return v;
             }
 
-            Vector3 a = transformVert(point, new Vector3(0, 1, 0));
-            Vector3 b = transformVert(point, new Vector3(1, 0, 0));
-            Vector3 c = transformVert(point, new Vector3(-1, 0, 0));
+            Vector3 a = transformVert(point, new Vector3(0, 1, 0)*scale);
+            Vector3 b = transformVert(point, new Vector3(1, 0, 0) * scale);
+            Vector3 c = transformVert(point, new Vector3(-1, 0, 0) * scale);
 
             vertices.Add(a);
             uvs.Add(new Vector2(0.5f, 1f));
@@ -122,4 +127,15 @@ public class RampMeshGenerator : MonoBehaviour
         meshCollider.sharedMesh = mesh;
     }
 
+    private void OnDrawGizmos()
+    {
+        var r = renderer;
+        if (r == null) r = GetComponent<MeshRenderer>();
+        if (r != null)
+        {
+            var extents = r.bounds.size;
+            //extents.Scale(transform.localScale);
+            Gizmos.DrawWireCube(r.bounds.center, extents);
+        }
+    }
 }
