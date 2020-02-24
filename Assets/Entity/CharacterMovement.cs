@@ -26,8 +26,8 @@ public class CharacterMovement : MonoBehaviour
     {
         get {
             Ray r = new Ray();
-            r.origin = transform.position + (Vector3.down * collider.bounds.extents.y * 0.9f);
-            r.direction = Vector3.down;
+            r.origin = transform.position + (Vector3.down * collider.bounds.extents.y * 0.95f);
+            r.direction = Vector3.down * 0.6f;
 
             RaycastHit hitInfo;
             Physics.Raycast(r, out hitInfo, 0.2f, groundCheckMask.value);
@@ -116,9 +116,9 @@ public class CharacterMovement : MonoBehaviour
         Vector3 vel2 = rbody.velocity;
 
         float velFactor = IsCrouched ? 0.5f : 0.75f;
-        float defaultVelFactor = IsCrouched ? 5f : 15f;
+        float defaultVelFactor = IsCrouched ? 5f : 20f;
 
-        vel2.y = Mathf.Max(Mathf.Abs(biggestVel.y*0.75f) * velFactor, defaultVelFactor);
+        vel2.y = Mathf.Max(Mathf.Abs(biggestVel.y * 0.85f) * velFactor, defaultVelFactor);
 
         rbody.velocity = vel2;
     }
@@ -135,7 +135,7 @@ public class CharacterMovement : MonoBehaviour
         if (!Application.isPlaying) return;
 
         Ray r = new Ray();
-        r.origin = transform.position + (Vector3.down * (collider.bounds.extents.y * 0.9f));
+        r.origin = transform.position + (Vector3.down * (collider.bounds.extents.y * 0.95f));
         r.direction = Vector3.down;
 
         Gizmos.color = Color.red;

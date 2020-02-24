@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/*
+ * 
+ * 
+    float xzTolerance = `chs("../../xztolerance")`;
+    float t = abs(deltaPos.x) * xzTolerance + abs(deltaPos.z) * xzTolerance + deltaPos.y * 1.5;
+
+
+ * */
+
 public class HE_PlatformBaked : MonoBehaviour
 {
     public float BumperStrength = 50f;
@@ -21,12 +30,18 @@ public class HE_PlatformBaked : MonoBehaviour
 
     private void SetMaterials(List<GameObject> outputList)
     {
-        var platforms = outputList.FirstOrDefault(o => o.transform.GetChild(0).name.Contains("Platform"));
-        foreach (var platformRenderer in platforms.GetComponentsInChildren<MeshRenderer>())
+        var platforms = outputList.FirstOrDefault(o => o.transform.childCount > 0 && o.transform.GetChild(0).name.Contains("Platform"));
+        if (platforms)
         {
-            platformRenderer.sharedMaterial = platformMaterial;
+            foreach (var platformRenderer in platforms.GetComponentsInChildren<MeshRenderer>())
+            {
+                platformRenderer.sharedMaterial = platformMaterial;
+            }
         }
-        var bumpers = outputList.FirstOrDefault(o => o.transform.GetChild(0).name.Contains("Bumper"));
+
+        var bumpers = outputList.FirstOrDefault(o => o.transform.childCount > 0 && o.transform.GetChild(0).name.Contains("Bumper"));
+        if (!bumpers) return;
+
         foreach (var bumperRenderer in bumpers.GetComponentsInChildren<MeshRenderer>())
         {
             bumperRenderer.sharedMaterial = bumperMaterial;
@@ -54,17 +69,23 @@ public class HE_PlatformBaked : MonoBehaviour
     private void AddBumperComponent(List<GameObject> outputList)
     {
         GameObject bumpers = GetBumpers(outputList);
+        if (!bumpers) return;
+
         for (int i = 0; i < bumpers.transform.childCount; i++)
         {
             Transform bumper = bumpers.transform.GetChild(i);
+            if (bumper.childCount > 0) continue;
 
-            var b = bumper.GetComponent<SetVelocityOnTriggerEnter>();
-            if (b == null)
-            {
-                b = bumper.gameObject.AddComponent<SetVelocityOnTriggerEnter>();
-                b.targetVelocity = Vector3.up;
-                b.Strength = BumperStrength;
-            }
+            var bumperCollider = Instantiate(bumper);
+            DestroyImmediate(bumperCollider.GetComponent<MeshRenderer>());
+            bumperCollider.transform.SetParent(bumper, false);
+            bumperCollider.localScale = Vector3.one;
+            bumperCollider.localPosition = Vector3.up * 0.05f;
+            bumperCollider.GetComponent<MeshCollider>().isTrigger = true;
+
+            var b = bumperCollider.gameObject.AddComponent<SetVelocityOnTriggerEnter>();
+            b.targetVelocity = Vector3.up;
+            b.Strength = BumperStrength;
         }
     }
 

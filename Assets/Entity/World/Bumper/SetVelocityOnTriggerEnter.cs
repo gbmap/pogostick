@@ -17,14 +17,4 @@ public class SetVelocityOnTriggerEnter : MonoBehaviour
 
         other.attachedRigidbody.velocity = vel;
     }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        Vector3 vel = collision.rigidbody.velocity;
-        vel.x = Mathf.Lerp(vel.x, targetVelocity.x * Strength, velocityMask.x);
-        vel.y = Mathf.Lerp(vel.y, targetVelocity.y * Strength, velocityMask.y);
-        vel.z = Mathf.Lerp(vel.z, targetVelocity.z * Strength, velocityMask.z);
-
-        collision.rigidbody.velocity = vel;
-    }
 }
