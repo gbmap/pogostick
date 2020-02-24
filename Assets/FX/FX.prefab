@@ -54,10 +54,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7244969712014596430}
     m_Modifications:
-    - target: {fileID: 6429487401175895404, guid: 102a304360bc10949b179ab51080f4b4,
+    - target: {fileID: 3998312631307770034, guid: 102a304360bc10949b179ab51080f4b4,
         type: 3}
-      propertyPath: m_Name
-      value: PS_Sparks
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992522286303734541, guid: 102a304360bc10949b179ab51080f4b4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5675440238779411561, guid: 102a304360bc10949b179ab51080f4b4,
         type: 3}
@@ -124,6 +129,26 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6363693152136842367, guid: 102a304360bc10949b179ab51080f4b4,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363693152136842367, guid: 102a304360bc10949b179ab51080f4b4,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363693152136842367, guid: 102a304360bc10949b179ab51080f4b4,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429487401175895404, guid: 102a304360bc10949b179ab51080f4b4,
+        type: 3}
+      propertyPath: m_Name
+      value: PS_Sparks
+      objectReference: {fileID: 0}
     - target: {fileID: 8615670947014835563, guid: 102a304360bc10949b179ab51080f4b4,
         type: 3}
       propertyPath: m_VelocityScale
@@ -133,11 +158,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LengthScale
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4992522286303734541, guid: 102a304360bc10949b179ab51080f4b4,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 102a304360bc10949b179ab51080f4b4, type: 3}
@@ -160,11 +180,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7244969712014596430}
     m_Modifications:
-    - target: {fileID: 6429487401175895404, guid: 5c1a1136b5f735e4eabcaa54d449406c,
-        type: 3}
-      propertyPath: m_Name
-      value: PS_Blood
-      objectReference: {fileID: 0}
     - target: {fileID: 5675440238779411561, guid: 5c1a1136b5f735e4eabcaa54d449406c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -219,6 +234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429487401175895404, guid: 5c1a1136b5f735e4eabcaa54d449406c,
+        type: 3}
+      propertyPath: m_Name
+      value: PS_Blood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c1a1136b5f735e4eabcaa54d449406c, type: 3}

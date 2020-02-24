@@ -118,13 +118,14 @@ public class CharacterMovement : MonoBehaviour
         float velFactor = IsCrouched ? 0.5f : 0.75f;
         float defaultVelFactor = IsCrouched ? 5f : 15f;
 
-        vel2.y = Mathf.Max(Mathf.Abs(biggestVel.y) * velFactor, defaultVelFactor);
+        vel2.y = Mathf.Max(Mathf.Abs(biggestVel.y*0.75f) * velFactor, defaultVelFactor);
 
         rbody.velocity = vel2;
     }
     
     public void ReturnToLastGroundPosition()
     {
+        biggestVel = Vector3.zero;
         transform.position = lastGroundPos + Vector3.up;
         rbody.velocity = Vector3.zero;
     }

@@ -8,7 +8,7 @@ public class DestroyOnTouch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CharacterHealth health = other.GetComponent<CharacterHealth>();
+        Health health = other.GetComponent<Health>();
         if (health)
         {
             health.TakeDamage(gameObject, Damage);
@@ -23,7 +23,7 @@ public class DestroyOnTouch : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        CharacterHealth health = collision.gameObject.GetComponent<CharacterHealth>();
+        Health health = collision.gameObject.GetComponent<Health>();
         if (health)
         {
             health.TakeDamage(gameObject, Damage);

@@ -11,8 +11,6 @@ public class MsgFinishingLineReached
 
 public class GamemodeChallenge : Gamemode
 {
-    public string NextLevel;
-
     bool runTimer;
     public float Timer { get; private set; }
 
@@ -56,7 +54,7 @@ public class GamemodeChallenge : Gamemode
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadSceneAsync(NextLevel);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
     }
 
     public void ReloadCurrentLevel()

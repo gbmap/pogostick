@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &8340011967760400169
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6352006602742093094}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 87972019673ea364aa6aaee8d7e9b3bb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9184619246849506292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6352006602742093094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a64497c6348dea479039bbe5da07f70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-3172935343829791947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +35,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  Invincible: 0
 --- !u!114 &4292809625665418409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +50,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gib: {fileID: 8480530762333863903, guid: d02f0a5e4dd29144d91afb50f2656d2c, type: 3}
   Count: 5
+--- !u!114 &5578176289464599690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352006603286660420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01e612011e366845b51e228a220cd91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: 0
+  Count: 10
+  ScaleFromDamage: 1
+  ParticlePerDamage: 5
+--- !u!95 &8340011967760400169
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352006602742093094}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 87972019673ea364aa6aaee8d7e9b3bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9184619246849506292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352006602742093094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a64497c6348dea479039bbe5da07f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5670452165509238926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,6 +104,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1627948367783200172, guid: a835fc8a37503e54c89f21fc04821e6e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.946602
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627948367783200172, guid: a835fc8a37503e54c89f21fc04821e6e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.866505
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627948367783200172, guid: a835fc8a37503e54c89f21fc04821e6e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627948368327316936, guid: a835fc8a37503e54c89f21fc04821e6e,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.766505
+      objectReference: {fileID: 0}
     - target: {fileID: 1627948368327316938, guid: a835fc8a37503e54c89f21fc04821e6e,
         type: 3}
       propertyPath: m_Name

@@ -115,7 +115,7 @@ MonoBehaviour:
   ground_accelerate: 150
   max_velocity_ground: 600
   air_accelerate: 50
-  max_velocity_air: 600
+  max_velocity_air: 700
   friction: 5
   groundCheckMask:
     serializedVersion: 2

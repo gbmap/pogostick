@@ -24,6 +24,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Challenges/C_5.unity
     guid: 8edab9a4425f382438c4eb7bdc5fad06
   - enabled: 1
+    path: Assets/Scenes/Challenges/C_7.unity
+    guid: d70c8c60778221e4a9ba6727a41d60fd
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_8.unity
+    guid: f911245680680634cbdef2c4f2fcd4b9
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_10.unity
+    guid: 616332493eba6a8498fcc98a148cff63
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_11.unity
+    guid: 102feca865985c14fadaea1ade0e9c37
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_12.unity
+    guid: c22512a28c703f8448b5bfb06bf153e6
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_A_1.unity
+    guid: aab67174ac0f1ff43937bebe68fab643
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_A_9.unity
+    guid: dea5f0163ded553429d2705bfcd7b4cf
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_A_10.unity
+    guid: 07258f2f600b10c4883b0c9570971277
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_B_6.unity
+    guid: 26b005611c910a049ab681c9cd6ce523
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_B_9.unity
+    guid: ec9e8cc443bb7234ea7f085bc98efa52
+  - enabled: 1
     path: Assets/Scenes/Challenges/C_B_3.unity
     guid: 46b2e652cceb12b4285da8263f01f5c4
   - enabled: 1
@@ -32,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Challenges/C_B_5.unity
     guid: 92d94e8587401db4c9b2975973600c27
+  - enabled: 1
+    path: Assets/Scenes/Challenges/C_C_9.unity
+    guid: 5b1191c780e0670459cdffc4a06c6dcb
   m_configObjects: {}

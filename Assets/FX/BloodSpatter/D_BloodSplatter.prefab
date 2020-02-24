@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 5500957192508638892}
   - component: {fileID: 6092203360008548361}
   - component: {fileID: 7096236989989532148}
-  - component: {fileID: 8680303138431494896}
   - component: {fileID: 2542420784487426922}
   m_Layer: 0
   m_Name: D_BloodSplatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5500957192508638892
 Transform:
@@ -54,8 +53,8 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8680303138431494896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104924744981342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c52ee8fa621de304ba30a5f0a24ebfd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorA: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
-  colorB: {r: 0.254717, g: 0, b: 0, a: 1}
 --- !u!114 &2542420784487426922
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class SpawnOnMapExit : MonoBehaviour
     CharacterMovement movement;
     Gamemode gamemode;
 
+    public EBoundsSide[] mask = { EBoundsSide.Bot };
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,7 +23,7 @@ public class SpawnOnMapExit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gamemode.IsInsideLevel(transform.position))
+        if (!gamemode.IsInsideLevel(transform.position, mask))
         {
             movement.ReturnToLastGroundPosition();
         }

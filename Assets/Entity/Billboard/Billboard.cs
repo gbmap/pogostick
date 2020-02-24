@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,24 +22,14 @@ public class Billboard : MonoBehaviour
 
     MeshRenderer renderer;
 
-    CharacterHealth health;
-
-    float hitFactor;
-    public float HitFactor
-    {
-        get { return hitFactor; }
-        set
-        {
-            hitFactor = Mathf.Clamp01(value);
-            renderer.material.SetFloat("_HitFactor", hitFactor);
-        }
-    }
+    Health health;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<MeshRenderer>();
         collider = GetComponentInParent<CapsuleCollider>();
+        health = GetComponentInParent<Health>();
     }
 
     private void ResizeToTexture()
@@ -75,16 +66,6 @@ public class Billboard : MonoBehaviour
 
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
             Camera.main.transform.rotation * Vector3.up);
-
-        if (HitFactor > 0f)
-        {
-            HitFactor = HitFactor - Time.deltaTime * 3f;
-        }
-        else if (HitFactor < 0f)
-        {
-            HitFactor = 0f;
-        }
-
     }
 
     private void OnDrawGizmos()
