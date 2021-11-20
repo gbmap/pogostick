@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DRAP.Utils
 {
@@ -12,8 +10,6 @@ namespace DRAP.Utils
 
     public static class Interp
     {
-
-
         public static Vector3 Linear(Vector3 a, Vector3 b, float t)
         {
             return a + t * (b - a);
@@ -28,6 +24,11 @@ namespace DRAP.Utils
             p += 2 * u * t * b;
             p += tt * c;
             return p;
+        }
+
+        public static Vector3 Cubic(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float t)
+        {
+            return (1f-t)*Quadratic(a,b,c,t)+t*Quadratic(b,c,d,t);
         }
     }
 }
