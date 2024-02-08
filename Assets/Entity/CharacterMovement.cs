@@ -7,16 +7,18 @@ public class CharacterMovement : MonoBehaviour
     public Vector3 wishDir;
     public bool IsCrouched;
 
-    public float ground_accelerate = 10f;
-    public float max_velocity_ground = 200f;
-    public float air_accelerate = 15f;
-    public float max_velocity_air = 300f;
-    public float friction = 10f;
+    public MovementConfiguration MovementConfiguration;
+
+    public float ground_accelerate => MovementConfiguration.GroundAcceleration;
+    public float max_velocity_ground => MovementConfiguration.MaxVelocityGround;
+    public float air_accelerate => MovementConfiguration.AirAcceleration;
+    public float max_velocity_air => MovementConfiguration.MaxVelocityAir;
+    public float friction => MovementConfiguration.Friction;
 
     public LayerMask groundCheckMask;
 
     Rigidbody rbody;
-    Collider collider;
+    new Collider collider;
 
     Vector3 lastVel;
     Vector3 biggestVel;
@@ -70,7 +72,7 @@ public class CharacterMovement : MonoBehaviour
         //rbody.MovePosition(rbody.position + (MoveGround(dir, rbody.velocity) * Time.deltaTime));
         float yy = rbody.velocity.y;
         Vector3 vel = rbody.velocity;
-        vel = IsOnGround ? (MoveGround(dir, vel)) : MoveAir(dir, vel);
+        vel = (IsOnGround && lastIsOnGround) ? (MoveGround(dir, vel)) : MoveAir(dir, vel);
         vel *= velFactor;
         vel.y = yy;
         rbody.velocity = vel;

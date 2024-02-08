@@ -1,31 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class SpawnOnMapExit : MonoBehaviour
+namespace DRAP
 {
-    CharacterMovement movement;
-    Gamemode gamemode;
-
-    public EBoundsSide[] mask = { EBoundsSide.Bot };
-
-    // Start is called before the first frame update
-    void Awake()
+    public class SpawnOnMapExit : MonoBehaviour
     {
-        movement = GetComponent<CharacterMovement>();
-        gamemode = FindObjectOfType<Gamemode>();
-        if (gamemode == null)
-        {
-            Destroy(this);
-        }
-    }
+        CharacterMovement movement;
+        [Inject] ILevelBounds levelBounds;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!gamemode.IsInsideLevel(transform.position, mask))
+        public EBoundsSide[] mask = { EBoundsSide.Bot };
+
+        // Start is called before the first frame update
+        void Awake()
         {
-            movement.ReturnToLastGroundPosition();
+            movement = GetComponent<CharacterMovement>();
         }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (levelBounds == null)
+                return; 
+                
+            if (!levelBounds.IsInsideLevel(transform.position, mask))
+            {
+                movement.ReturnToLastGroundPosition();
+            }
+        }
+
     }
 }
